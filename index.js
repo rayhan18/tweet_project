@@ -5,7 +5,7 @@ const serchItem = document.querySelector('#serchItem')
 const msgList = document.querySelector('#msgList')
 const deleteBtn = document.querySelector('.deleteBtn')
 const msg = document.querySelector('#msg')
-
+const time = new Date().toString("HH:mm MMMM dS, yyyy")
 //input data
 let tweetDatas= []
 function getinputData(dataLists){
@@ -16,16 +16,19 @@ function getinputData(dataLists){
          li =document.createElement('li')
         li.className ='border-bottom mb-1 list-group-item bg-info'
         li.id=`tweetData${dataList.id}`
-        li.innerHTML =`<span>${dataList.msg}</span> <button class="btn btn-danger btn-sm deleteBtn" style="margin-left: 110px;">Delete</button>`
+        li.innerHTML =`<span>${dataList.msg}</span><br/><span style="font-size:8px">tw: ${time}</span><br/> 
+        <button class="btn btn-danger btn-sm deleteBtn" style="float:right;">Delete
+     
+        </button>`
       
         
         tweetList.appendChild(li)
 
     });
-    Date.parse("10PM")
+    //Date.parse("10PM")
    
 }
-new Date().toString("HH:mm")
+
 getinputData(tweetDatas)
 
 //add data
