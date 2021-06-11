@@ -5,8 +5,9 @@ const serchItem = document.querySelector('#serchItem')
 const msgList = document.querySelector('#msgList')
 const deleteBtn = document.querySelector('.deleteBtn')
 const msg = document.querySelector('#msg')
-const time= dayjs().format('MMM-DD-YYYY hh.mm a')
-//const time = new Date().toString("HH:mm MMMM dS, yyyy")
+const time = document.querySelector('#time')
+//const time= dayjs().format('MMM-DD-YYYY hh.mm a')
+//const time = new Date().toString("HH:mm  MMMM dS, yyyy")
 //const time = new Date().toString(dayjs().format(' HH:mm MMM/DD/YYYY').dayjs().format('LT').dayjs().fromNow())
 //const time = datejs().format(' HH:mm MMM/DD/YYYY').datejs().format('LT').datejs().fromNow()
 // var n = new Date().toString("HH:mm MMMM dS, yyyy");
@@ -22,7 +23,7 @@ function getinputData(dataLists){
          li =document.createElement('li')
         li.className ='border-bottom mb-1 list-group-item bg-info'
         li.id=`tweetData${dataList.id}`
-        li.innerHTML =`<span>${dataList.msg}</span><br/><span style="font-size:8px">tw:${time} </span><br/> 
+        li.innerHTML =`<span>${dataList.msg}</span><br/><span style="font-size:8px">tw:${dataList.time} </span><br/> 
         <button class="btn btn-danger btn-sm deleteBtn" style="float:right;">Delete
      
         </button>`
@@ -31,7 +32,7 @@ function getinputData(dataLists){
         tweetList.appendChild(li)
 
     });
-    //Date.parse("10PM")
+   
    
 }
 
@@ -43,14 +44,16 @@ submitbtn.addEventListener('click',(e)=>{
     const name =inputText.value
     const msg =inputText.value
     let id
-   // let time= dayjs().format('MMM-DD-YYYY hh.mm a')
+    let time = inputText.value
+ 
     if(tweetDatas === 0){
         id=0
     }else{
         id =tweetDatas[tweetDatas.length-1]
         id +=1
+        time = dayjs().format('MMM-DD-YYYY hh.mm a')
     }
-   // data.time = dayjs().format('MMM-DD-YYYY hh.mm a')
+  
 
     if(msg === ''){
         alert('plase enter your massage')
